@@ -72,12 +72,17 @@ for c in cities:
 
 # TODO Get latitude and longitude values from the user
 
+user_input = input('Enter your lat1,lon1: /n Enter your lat2,lon2: ')
+
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
-  within = []
+  
+  within = [city for city in cities if city.lat < lat1 and city.lat > lat2 or city.lon < lon1 and city.lon > lon2]
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+cityreader_stretch(user_input[1], user_input[2], user_input[3], user_input[4], cities)
